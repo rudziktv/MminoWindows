@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MminoWindows" xmlns:basic="clr-namespace:MminoWindows.Basic"
+        xmlns:local="clr-namespace:MminoWindows" xmlns:basic="clr-namespace:MminoWindows.Basic" xmlns:view="clr-namespace:MminoWindows.View"
         MinHeight="450"
         MinWidth="800"
         mc:Ignorable="d"
@@ -16,6 +16,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
@@ -45,5 +46,6 @@
         <Grid Grid.Row="1">
             <ContentControl Content="{Binding SelectedViewModel}"/>
         </Grid>
+        <view:PlayerView Grid.Row="2" Margin="10"/>
     </Grid>
 </Window>

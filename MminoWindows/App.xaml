@@ -8,11 +8,16 @@
              xmlns:windowmodel="clr-namespace:MminoWindows.WindowModel"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type viewmodel:BeginViewModel}">
-            <view:BeginView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodel:MenuViewModel}">
-            <view:MenuView/>
-        </DataTemplate>
+        <ResourceDictionary>
+            <DataTemplate DataType="{x:Type viewmodel:BeginViewModel}">
+                <view:BeginView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodel:MenuViewModel}">
+                <view:MenuView/>
+            </DataTemplate>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
