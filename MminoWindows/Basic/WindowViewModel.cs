@@ -16,14 +16,14 @@ namespace MminoWindows.Basic
 
         public Command MinimizeCommand { get; set; }
         public Command MaximizeCommand { get; set; }
+        public Command CloseAppCommand { get; set; }
 
         internal void InitializeWindow(Window window)
         {
             this.window = window;
-            window.Activated += WindowActivated;
-            window.SizeChanged += WindowSizeChanged;
             MinimizeCommand = new(Minimize);
             MaximizeCommand = new(Maximize);
+            CloseAppCommand = new(CloseApp);
         }
 
         private void WindowSizeChanged(object sender, SizeChangedEventArgs e)
@@ -31,20 +31,8 @@ namespace MminoWindows.Basic
             window.WindowStyle = WindowStyle.None;
         }
 
-        private void WindowActivated(object? sender, EventArgs e)
-        {
-            //window.WindowStyle = WindowStyle.None;
-
-            window.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, (DispatcherOperationCallback)delegate (object unused)
-            {
-                window.WindowStyle = WindowStyle.None;
-                return null;
-            }, null);
-        }
-
         internal void Minimize()
         {
-            window.WindowStyle = WindowStyle.SingleBorderWindow;
             window.WindowState = WindowState.Minimized;
         }
 
@@ -52,14 +40,17 @@ namespace MminoWindows.Basic
         {
             if (window.WindowState == WindowState.Maximized)
             {
-                window.WindowStyle = WindowStyle.SingleBorderWindow;
                 window.WindowState = WindowState.Normal;
             }
             else
             {
-                window.WindowStyle = WindowStyle.SingleBorderWindow;
                 window.WindowState = WindowState.Maximized;
             }
+        }
+
+        internal void CloseApp()
+        {
+            App.Current.Shutdown();
         }
 
         internal void Open()

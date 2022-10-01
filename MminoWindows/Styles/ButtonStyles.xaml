@@ -1,0 +1,156 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="CloseCaptionButton"
+           TargetType="{x:Type Button}">
+        <Setter Property="Template" Value="{DynamicResource CaptionButton}"/>
+        <Setter Property="Background" Value="#CF6679"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                    FillBehavior="HoldEnd">
+                            <ColorAnimation To="#4F272E"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                    FillBehavior="HoldEnd">
+                            <ColorAnimation To="#CF6679"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+            <Trigger Property="IsMouseCaptured" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                    FillBehavior="HoldEnd">
+                            <ColorAnimation To="#D7AAB2"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                    FillBehavior="Stop">
+                            <ColorAnimation To="#CF6679"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="MaximizeCaptionButton"
+           TargetType="{x:Type Button}">
+        <Setter Property="Template" Value="{DynamicResource CaptionButton}"/>
+        <Setter Property="Background" Value="#BA87FC"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                    FillBehavior="HoldEnd">
+                            <ColorAnimation To="#5C437D"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                    FillBehavior="HoldEnd">
+                            <ColorAnimation To="#BA87FC"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+            <Trigger Property="IsMouseCaptured" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                    FillBehavior="HoldEnd">
+                            <ColorAnimation To="#E6D4FD"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                    FillBehavior="Stop">
+                            <ColorAnimation To="#BA87FC"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="MinimizeCaptionButton"
+           TargetType="{x:Type Button}">
+        <Setter Property="Template" Value="{DynamicResource CaptionButton}"/>
+        <Setter Property="Background" Value="#02DAC7"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                    FillBehavior="HoldEnd">
+                            <ColorAnimation To="#015952"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                    FillBehavior="HoldEnd">
+                            <ColorAnimation To="#02DAC7"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+            <Trigger Property="IsMouseCaptured" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                    FillBehavior="HoldEnd">
+                            <ColorAnimation To="#45DFD2"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                    FillBehavior="Stop">
+                            <ColorAnimation To="#02DAC7"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <ControlTemplate x:Key="CaptionButton"
+                     TargetType="{x:Type Button}"
+                     >
+        <Border Height="{TemplateBinding Height}"
+                Width="{TemplateBinding Height}"
+                Background="{TemplateBinding Background}"
+                CornerRadius="25"
+                Name="ButtonBorder"/>
+    </ControlTemplate>
+</ResourceDictionary>

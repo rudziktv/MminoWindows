@@ -8,7 +8,22 @@
         MinWidth="800"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        WindowStyle="None">
+        WindowStyle="SingleBorderWindow"
+        RenderOptions.BitmapScalingMode="HighQuality"
+        Background="#121212"
+        Template="{DynamicResource WindowTemplate}"
+        WindowState="Maximized"
+        ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterOwner"
+        MaxWidth="{Binding Source={x:Static SystemParameters.WorkArea}, Path=Width}"
+        MaxHeight="{Binding Source={x:Static SystemParameters.WorkArea}, Path=Height}">
+    <WindowChrome.WindowChrome>
+        <WindowChrome ResizeBorderThickness="5"
+                      GlassFrameThickness="1"
+                      NonClientFrameEdges="Bottom"
+                      CaptionHeight="20"
+                      UseAeroCaptionButtons="False"/>
+    </WindowChrome.WindowChrome>
     <Window.DataContext>
         <basic:MainViewModel/>
     </Window.DataContext>
@@ -21,29 +36,31 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="Navigate">
+                    <MenuItem Command="{Binding GetUpdatesCommand}" Header="GetUpdate"/>
                     <MenuItem Command="{Binding UpdateViewCommand}" CommandParameter="begin" Header="Begin">
                         <MenuItem.Icon>
-                            <Image RenderOptions.BitmapScalingMode="HighQuality" Source="C:\Users\Auto7\source\repos\MminoWindows\MminoWindows\Assets\Icons\flag_FILL0_wght400_GRAD0_opsz48.png"/>
+                            <Image Source="C:\Users\Auto7\source\repos\MminoWindows\MminoWindows\Assets\Icons\flag_FILL0_wght400_GRAD0_opsz48.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Command="{Binding UpdateViewCommand}" CommandParameter="menu" Header="Menu">
                         <MenuItem.Icon>
-                            <Image RenderOptions.BitmapScalingMode="HighQuality" Source="C:\Users\Auto7\source\repos\MminoWindows\MminoWindows\Assets\Icons\menu_FILL0_wght400_GRAD0_opsz48.png"/>
+                            <Image Source="C:\Users\Auto7\source\repos\MminoWindows\MminoWindows\Assets\Icons\menu_FILL0_wght400_GRAD0_opsz48.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Help">
                     <MenuItem Command="{Binding UpdateViewCommand}" CommandParameter="about" Header="About">
                         <MenuItem.Icon>
-                            <Image RenderOptions.BitmapScalingMode="HighQuality" Source="C:\Users\Auto7\source\repos\MminoWindows\MminoWindows\Assets\Icons\info_FILL0_wght400_GRAD0_opsz48.png"/>
+                            <Image Source="C:\Users\Auto7\source\repos\MminoWindows\MminoWindows\Assets\Icons\info_FILL0_wght400_GRAD0_opsz48.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="Minimize" Command="{Binding MinimizeCommand}"/>
-                <MenuItem Header="Maximize" Command="{Binding MaximizeCommand}"/>
+                <MenuItem IsHitTestVisible="True" Header="Minimize" Command="{Binding MinimizeCommand}"/>
+                <MenuItem WindowChrome.IsHitTestVisibleInChrome="True" Header="Maximize" Command="{Binding MaximizeCommand}"/>
             </Menu>
         </DockPanel>
         <Grid Grid.Row="1">
+            <ProgressBar Width="500" Minimum="0" Maximum="1" Value="{Binding Progress}" Height="25"/>
             <ContentControl Content="{Binding SelectedViewModel}"/>
         </Grid>
         <view:PlayerView Grid.Row="2" Margin="10"/>

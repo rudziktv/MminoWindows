@@ -4,7 +4,6 @@
              xmlns:local="clr-namespace:MminoWindows"
              xmlns:view="clr-namespace:MminoWindows.View"
              xmlns:viewmodel="clr-namespace:MminoWindows.ViewModel"
-             xmlns:window="clr-namespace:MminoWindows.WindowView"
              xmlns:windowmodel="clr-namespace:MminoWindows.WindowModel"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
@@ -17,6 +16,8 @@
             </DataTemplate>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles.xaml"/>
+                <ResourceDictionary Source="Styles/WindowStyles.xaml"/>
+                <ResourceDictionary Source="Styles/ButtonStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
