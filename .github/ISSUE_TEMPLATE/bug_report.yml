@@ -1,12 +1,20 @@
 name: Bug Report
 description: File a bug report
-title: "Title"
 labels: ["bug", "triage"]
 body:
   - type: markdown
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report!
+  - type: dropdown
+    id: problem-type
+    attributes:
+      label: Problem Type
+      options:
+        - Crash
+        - Bug
+        - Not working
+        - Other
   - type: textarea
     id: what-happened
     attributes:
