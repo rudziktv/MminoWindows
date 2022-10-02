@@ -15,8 +15,8 @@ body:
         - Bug
         - Not working
         - Other
-      validations:
-        requaierd: true
+    validations:
+      requaierd: true
   - type: textarea
     id: what-happened
     attributes:
