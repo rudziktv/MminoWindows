@@ -17,6 +17,20 @@ body:
         - Other
     validations:
       required: true
+  - type: dropdown
+    id: problem-place
+    attributes:
+      label: Problem Place
+      options:
+        - AutoUpdate
+        - StartUp
+        - While Downloading Song
+        - While Playing
+        - Playback Control
+        - Playlists List
+        - Other
+      validations:
+        required: true
   - type: textarea
     id: what-happened
     attributes:
