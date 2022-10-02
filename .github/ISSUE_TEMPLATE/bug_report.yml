@@ -1,7 +1,7 @@
 name: Bug Report
 description: File a bug report
 labels: ["bug", "triage"]
-projects: ["MminoWindows"]
+assignees: ["MminoWindows"]
 body:
   - type: markdown
     attributes:
