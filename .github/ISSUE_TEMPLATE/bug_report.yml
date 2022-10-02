@@ -1,0 +1,72 @@
+name: Bug Report
+description: File a bug report
+labels: ["bug", "triage"]
+assignees: ["rudziktv"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: dropdown
+    id: problem-type
+    attributes:
+      label: Problem Type
+      options:
+        - Crash
+        - Bug
+        - Not working
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: problem-place
+    attributes:
+      label: Problem Place
+      options:
+        - AutoUpdate
+        - StartUp
+        - While Downloading Song
+        - While Playing
+        - Playback Control
+        - Playlists List
+        - Other
+    validations:
+        required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Tell us, how to reproduce bug/problem?
+      placeholder: Describe steps to reproduce your problem
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 0.0.0-alpha-ffffff
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Select platform
+      description: What platform/version of platform you have?
+      options:
+        - Windows XP
+        - Windows Vista
+        - Windows 7
+        - Windows 8
+        - Windows 8.1
+        - Windows 10
+        - Windows 11
+    validations:
+      required: true
