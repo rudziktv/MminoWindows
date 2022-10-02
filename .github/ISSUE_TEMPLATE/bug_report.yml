@@ -29,7 +29,7 @@ body:
         - Playback Control
         - Playlists List
         - Other
-      validations:
+    validations:
         required: true
   - type: textarea
     id: what-happened
