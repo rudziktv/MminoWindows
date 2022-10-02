@@ -12,6 +12,7 @@ body:
       label: Problem Type
       options:
         - Crash
+        labels: ["critical error"]
         - Bug
         - Not working
         - Other
