@@ -1,7 +1,7 @@
 name: Bug Report
 description: File a bug report
 labels: ["bug", "triage"]
-assignees: ["MminoWindows"]
+assignees: ["rudziktv"]
 body:
   - type: markdown
     attributes:
