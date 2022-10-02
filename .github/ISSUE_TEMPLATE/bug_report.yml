@@ -50,3 +50,16 @@ body:
         - 0.0.0-alpha-ffffff
     validations:
       required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Select platform
+      description: What platform/version of platform you have?
+      options:
+        - Windows XP
+        - Windows Vista
+        - Windows 7
+        - Windows 8
+        - Windows 8.1
+        - Windows 10
+        - Windows 11
