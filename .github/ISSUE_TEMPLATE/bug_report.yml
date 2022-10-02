@@ -11,7 +11,7 @@ body:
     attributes:
       label: Problem Type
       options:
-        - labels: ["critical error"]
+        - labels: ["critical error" | critical error]
         - Crash
         
         - Bug
