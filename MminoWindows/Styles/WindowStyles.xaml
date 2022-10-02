@@ -23,6 +23,14 @@
                   Background="Black"
                   Margin="5">
                 <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left">
+                    <Image Source="../Assets/Images/logo_v1_without_text_resized.png"
+                       Width="25"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Right"
                             >
                     <Button Content="Min"

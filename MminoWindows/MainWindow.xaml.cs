@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MminoWindows.WindowModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace MminoWindows
         public MainWindow()
         {
             InitializeComponent();
+            Module.DataHandler.MainViewModel = new(this);
             DataContext = Module.DataHandler.MainViewModel;
         }
     }

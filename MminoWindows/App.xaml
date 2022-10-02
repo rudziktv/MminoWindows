@@ -5,7 +5,7 @@
              xmlns:view="clr-namespace:MminoWindows.View"
              xmlns:viewmodel="clr-namespace:MminoWindows.ViewModel"
              xmlns:windowmodel="clr-namespace:MminoWindows.WindowModel"
-             StartupUri="MainWindow.xaml">
+             StartupUri="Windows/UpdaterWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <DataTemplate DataType="{x:Type viewmodel:BeginViewModel}">

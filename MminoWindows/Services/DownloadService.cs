@@ -14,7 +14,6 @@ namespace MminoWindows.Services
     {
         public static Task DownloadFile(HttpContent content, string path, IProgress<KeyValuePair<long, long>>? progress = default)
         {
-            MessageBox.Show("Started");
             return Task.Run(async () =>
             {
                 try

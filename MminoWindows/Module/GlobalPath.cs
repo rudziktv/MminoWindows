@@ -9,7 +9,7 @@ namespace MminoWindows.Module
 {
     internal static class GlobalPath
     {
-        private const string UPDATE_FOLDER = "Update";
+        public const string UPDATE_FOLDER = "Update";
         public static string CurrentDirectory = Environment.CurrentDirectory;
 
         public static string UpdateDirectory = Path.Combine("../", UPDATE_FOLDER);

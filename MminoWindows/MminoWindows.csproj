@@ -5,13 +5,20 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>logo_v1_without_text_resized.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Assets\Fonts\Montserrat-Light.ttf" />
     <None Remove="Assets\Fonts\Montserrat-Medium.ttf" />
     <None Remove="Assets\Fonts\Montserrat-Regular.ttf" />
+    <None Remove="Assets\Images\loading.gif" />
     <None Remove="Assets\Images\logo_v1.png" />
+    <None Remove="Assets\Images\logo_v1_without_text_resized.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="logo_v1_without_text_resized.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,13 +31,23 @@
     <Resource Include="Assets\Fonts\Montserrat-Regular.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Assets\Images\loading.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Assets\Images\logo_v1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\logo_v1_without_text_resized.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Control\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="XamlAnimatedGif" Version="2.0.3" />
   </ItemGroup>
 
 </Project>

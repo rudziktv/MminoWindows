@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MminoWindows.WindowModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,9 @@ namespace MminoWindows.Windows
         public UpdaterWindow()
         {
             InitializeComponent();
+            var a = new UpdaterWindowModel(this);
+            this.DataContext = a;
+            a.CheckUpdates();
         }
     }
 }

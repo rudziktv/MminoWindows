@@ -1,9 +1,12 @@
 ﻿using MminoWindows.Module;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +43,7 @@ namespace MminoWindows.Services
                     var checkSumLocal = md5.ComputeHash(file);
                     file.Close();
                     if (CheckSumAreSame(checkSum, checkSumLocal))
-                        return false;
+                        return true;
                     else
                         await DownloadService.DownloadFile(response.Content, "update.zip", progress);  
                 }
@@ -53,17 +56,36 @@ namespace MminoWindows.Services
 
         
 
-        private async void CheckDownloadInstallUpdate()
+        public static async Task CheckDownloadInstallUpdate(IProgress<KeyValuePair<long, long>>? progress = default)
         {
-            if (await CheckDownloadUpdate())
+            if (await CheckDownloadUpdate(progress))
             {
-                
+                var a = Directory.GetFiles(GlobalPath.UpdateDirectory);
+                foreach (var item in a)
+                {
+                    File.Delete(item);
+                }
+
+                ZipFile.ExtractToDirectory("update.zip", GlobalPath.UpdateDirectory);
+                GenerateBat();
+                var v = Process.Start("../install.bat");
+                Application.Current.Shutdown();
             }
         }
 
-        private void GenerateBat()
+        private static void GenerateBat()
         {
-
+            StreamWriter sw = new("../install.bat");
+            //sw.WriteLine("timeout 5");
+            sw.WriteLine("hideexec");
+            sw.WriteLine("Taskkill /im MminoWindows.exe");
+            sw.WriteLine($"cd {GlobalPath.CurrentDirectory}");
+            sw.WriteLine($"cd..");
+            sw.WriteLine($"rmdir /q /s {Path.GetRelativePath(Path.GetDirectoryName(GlobalPath.CurrentDirectory), GlobalPath.CurrentDirectory)}");
+            sw.WriteLine($"xcopy /s /i /h {Path.Combine(Path.GetDirectoryName(GlobalPath.CurrentDirectory), GlobalPath.UPDATE_FOLDER)} {GlobalPath.CurrentDirectory}");
+            sw.WriteLine($"cd {Path.GetRelativePath(Path.GetDirectoryName(GlobalPath.CurrentDirectory), GlobalPath.CurrentDirectory)}");
+            sw.WriteLine($"Start /b MminoWindows.exe");
+            sw.Close();
         }
 
         private static bool CheckSumAreSame(byte[] array1, byte[] array2)

@@ -41,11 +41,6 @@ namespace MminoWindows.Triggers
                 var a = new AboutWindowModel();
                 a.OpenDialog();
             }
-            else if (parameter.ToString() == "update")
-            {
-                var a = new UpdaterWindowModel();
-                a.Open();
-            }
         }
     }
 }

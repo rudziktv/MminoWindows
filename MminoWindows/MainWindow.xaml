@@ -12,7 +12,6 @@
         RenderOptions.BitmapScalingMode="HighQuality"
         Background="#121212"
         Template="{DynamicResource WindowTemplate}"
-        WindowState="Maximized"
         ResizeMode="CanResizeWithGrip"
         Foreground="White"
         WindowStartupLocation="CenterOwner"
@@ -37,8 +36,6 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="Navigate">
-                    <MenuItem Command="{Binding UpdateViewCommand}" CommandParameter="update" Header="UpdateWindow"/>
-                    <MenuItem Command="{Binding GetUpdatesCommand}" Header="GetUpdate"/>
                     <MenuItem Command="{Binding UpdateViewCommand}" CommandParameter="begin" Header="Begin">
                         <MenuItem.Icon>
                             <Image Source="C:\Users\Auto7\source\repos\MminoWindows\MminoWindows\Assets\Icons\flag_FILL0_wght400_GRAD0_opsz48.png"/>
@@ -62,24 +59,6 @@
             </Menu>
         </DockPanel>
         <Grid Grid.Row="1">
-            <StackPanel HorizontalAlignment="Center"
-                        Margin="10">
-                <ProgressBar Style="{DynamicResource ProgressBarStyle1}" Width="500"
-                             Minimum="0"
-                             Maximum="1"
-                             Value="{Binding Progress}"
-                             Height="10">
-                    <ProgressBar.Effect>
-                        <DropShadowEffect ShadowDepth="4"
-                                          Direction="330"
-                                          Color="Black"
-                                          Opacity="0.5"
-                                          BlurRadius="10"/>
-                    </ProgressBar.Effect>
-                </ProgressBar>
-                <TextBlock Text="{Binding DownloadedMegabytes}"/>
-                <TextBlock Text="{Binding FileSize}"/>
-            </StackPanel>
             <!--<ContentControl Content="{Binding SelectedViewModel}"/>-->
         </Grid>
         <view:PlayerView Grid.Row="2" Margin="10"/>
