@@ -1,4 +1,6 @@
 ﻿using MminoWindows.Basic;
+using MminoWindows.WindowModel;
+using MminoWindows.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,8 +38,13 @@ namespace MminoWindows.Triggers
             }
             else if (parameter.ToString() == "about")
             {
-                var a = new WindowModel.AboutWindowModel();
+                var a = new AboutWindowModel();
                 a.OpenDialog();
+            }
+            else if (parameter.ToString() == "update")
+            {
+                var a = new UpdaterWindowModel();
+                a.Open();
             }
         }
     }

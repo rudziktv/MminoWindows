@@ -18,6 +18,8 @@
                 <ResourceDictionary Source="Styles.xaml"/>
                 <ResourceDictionary Source="Styles/WindowStyles.xaml"/>
                 <ResourceDictionary Source="Styles/ButtonStyles.xaml"/>
+                <ResourceDictionary Source="Styles/ProgressBarStyles.xaml"/>
+                <ResourceDictionary Source="Styles/Fonts.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

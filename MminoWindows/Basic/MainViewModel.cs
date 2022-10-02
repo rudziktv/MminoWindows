@@ -43,6 +43,21 @@ namespace MminoWindows.Basic
             }
         }
 
+        private float _downloadedMegabytes;
+
+        public float DownloadedMegabytes
+        {
+            get { return _downloadedMegabytes; }
+            set
+            {
+                _downloadedMegabytes = value;
+                OnPropertyChanged(nameof(DownloadedMegabytes));
+            }
+        }
+
+        public float FileSize { get; set; }
+
+
         public UpdateViewCommand UpdateViewCommand { get; set; }
         public Command GetUpdatesCommand { get; set; }
         private CancellationToken cancellationToken;
@@ -60,44 +75,7 @@ namespace MminoWindows.Basic
         {
             try
             {
-                var client = new HttpClient();
-                var infoUrl = "https://raw.githubusercontent.com/rudziktv/MminoWindows/master/info.ini";
-                var infoVersion = await client.GetStringAsync(infoUrl);
-                var a = infoVersion.Split('\n');
-                if (a[0].Split('=')[1].Trim('"') != GlobalData.CURRENT_VERSION)
-                {
-                    MessageBox.Show("Your version isn't updated.");
-                    var fileUrl = a[1].Split('=')[1].Trim('"');
-                    var version = await client.GetAsync(fileUrl, HttpCompletionOption.ResponseHeadersRead);
-                    DownloadService.DownloadFile(version.Content, "download.zip", this);
-                }
-                else
-                {
-                    MessageBox.Show("Your app is up-to-date.");
-                }
-
-                var url = "https://github.com/rudziktv/MminoWindows/releases/download/0.0.0-preview-ffffff/mmino-windows.zip";
-                //var response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
-
-                //DownloadingFile(response.Content);
-                
-
-                
-                /*
-                if (!Directory.Exists("/update/"))
-                {
-                    Directory.CreateDirectory("/update/");
-                }
-                else
-                {
-                    var b = Directory.GetFiles("/update/");
-                    foreach (var item in b)
-                    {
-                        File.Delete(item);
-                    }
-                }
-                ZipFile.ExtractToDirectory("update.zip", "/update/");
-                */
+                AutoUpdateService.CheckDownloadUpdate(this);
             }
             catch
             {
@@ -105,30 +83,15 @@ namespace MminoWindows.Basic
             }
         }
 
-        private Task DownloadingFile(HttpContent content)
-        {
-            MessageBox.Show("Started");
-            return Task.Run(async () =>
-            {
-                var contentLength = content.Headers.ContentLength;
-                contentLength ??= 0;
-                long length = (long)contentLength;
-                var progress = length;
-
-                var fileStream = File.Create("update.zip");
-                var a = content.CopyToAsync(fileStream);
-
-                while (!a.IsCompletedSuccessfully)
-                {
-                    Report(new(fileStream.Length, length));
-                }                
-                fileStream.Close();
-            });
-        }
-
         public void Report(KeyValuePair<long, long> value)
         {
             Progress = ((float)value.Key / (float)value.Value);
+            DownloadedMegabytes = (float)ConvertUnits.FileSize.ConvertFromBytes(ConvertUnits.FileSize.SizeUnit.megabytes, (double)value.Key);
+            if (FileSize != (float)ConvertUnits.FileSize.ConvertFromBytes(ConvertUnits.FileSize.SizeUnit.megabytes, (double)value.Value))
+            {
+                FileSize = (float)ConvertUnits.FileSize.ConvertFromBytes(ConvertUnits.FileSize.SizeUnit.megabytes, (double)value.Value);
+                OnPropertyChanged(nameof(FileSize));
+            }
         }
     }
 }

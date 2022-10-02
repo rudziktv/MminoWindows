@@ -12,7 +12,7 @@ namespace MminoWindows.Services
 {
     internal class DownloadService
     {
-        public static Task DownloadFile(HttpContent content, string path, IProgress<KeyValuePair<long, long>> progress = default)
+        public static Task DownloadFile(HttpContent content, string path, IProgress<KeyValuePair<long, long>>? progress = default)
         {
             MessageBox.Show("Started");
             return Task.Run(async () =>
@@ -32,6 +32,7 @@ namespace MminoWindows.Services
                         {
                             progress.Report(new(fileStream.Position, length));
                         }
+                        progress.Report(new(fileStream.Position, length));
                     }
                     else
                     {
