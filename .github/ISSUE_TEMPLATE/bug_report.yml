@@ -16,7 +16,7 @@ body:
         - Not working
         - Other
     validations:
-      requaierd: true
+      requierd: true
   - type: textarea
     id: what-happened
     attributes:
