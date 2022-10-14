@@ -2,7 +2,7 @@
 
 ## Project Status
 
-__ONGOING__
+🟢 - __Developing__
 
 ## What is Mmino?
 
