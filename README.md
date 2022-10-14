@@ -16,3 +16,4 @@ __Special thanks for everybody, who was creating those amazing libraries and fra
 - [WPF](https://github.com/dotnet/wpf)
 - [YoutubeExplode](https://github.com/Tyrrrz/YoutubeExplode)
 - [XamlAnimatedGif](https://github.com/XamlAnimatedGif/XamlAnimatedGif)
+- [RemixIcons](https://remixicon.com/)
