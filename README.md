@@ -2,7 +2,7 @@
 
 ## Project Status
 
-🟢 - __Developing__
+🟢 - __Developing__ [?](https://github.com/rudziktv/rudziktv/blob/main/ProjectStatus.md)
 
 ## What is Mmino?
 
